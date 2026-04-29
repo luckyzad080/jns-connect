@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinkjulieland - Welcome to my shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Mitr', 'sans-serif'],
+                        heading: ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        theme: {
+                            bg: '#FAFAFC',
+                            card: '#FFFFFF',
+                            textDark: '#332E3A',
+                            textMuted: '#6B6670',
+                            noteBg: '#F3F4F6',
+                            btnBg: '#F6F3F9',
+                            btnHover: '#EBE5F0',
+                            accent: '#FFB6C1',
+                            purpleSoft: '#E8D1EE',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.03)',
+                        'float': '0 10px 30px rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(253, 176, 192, 0.4)',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        float: "float 4s ease-in-out infinite",
+                        floatSlow: "float 6s ease-in-out infinite",
+                        pulseSoft: "pulseSoft 3s ease-in-out infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-8px)" },
+                        },
+                        pulseSoft: {
+                            "0%, 100%": { opacity: 1, transform: "scale(1)" },
+                            "50%": { opacity: 0.7, transform: "scale(0.95)" },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAFAFC; color: #332E3A; -webkit-tap-highlight-color: transparent; }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        .modal-open { overflow: hidden; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="antialiased font-sans flex justify-center selection:bg-pink-200 selection:text-pink-900">
+
+    <main class="w-full max-w-[480px] min-h-screen relative pb-16 bg-white shadow-2xl sm:my-8 sm:rounded-[40px] overflow-hidden border border-gray-100">
+        
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div class="absolute top-[-5%] left-[-10%] w-[300px] h-[300px] bg-pink-100 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob"></div>
+            <div class="absolute top-[30%] right-[-10%] w-[350px] h-[350px] bg-purple-100 rounded-full mix-blend-multiply filter blur-[90px] opacity-60 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-[10%] left-[5%] w-[250px] h-[250px] bg-blue-50 rounded-full mix-blend-multiply filter blur-[70px] opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="relative z-10">
+            <header class="pt-14 pb-6 px-6 text-center relative">
+                <div class="absolute top-10 left-6 text-pink-200 opacity-40 text-3xl font-bold font-heading animate-float pointer-events-none">&lt;/&gt;</div>
+                <div class="absolute top-16 right-8 text-purple-200 opacity-40 text-2xl font-bold font-heading animate-floatSlow pointer-events-none">{ }</div>
+
+                <h1 class="font-heading text-4xl font-bold text-theme-textDark mb-1 tracking-wide relative inline-block">
+                    Pinkjulieland
+                    <svg class="absolute -top-3 -right-5 w-6 h-6 animate-pulseSoft" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 13 9 18 12C13 14 12 22 12 22C12 22 11 14 6 12C11 9 12 2 12 2Z" fill="#FDB0C0"/></svg>
+                </h1>
+                <h2 class="font-heading text-xl text-theme-textMuted font-medium mb-6">Welcome to my shop</h2>
+                
+                <div class="flex flex-col items-center gap-3">
+                    <p class="text-[15px] leading-relaxed text-theme-textDark">
+                        ร้านจูรับทำเว็บไซต์ครบวงจร <br>
+                        และจำหน่ายแอป Goodnote ทุกรูปแบบ
+                    </p>
+                    <span class="inline-block font-medium bg-gradient-to-r from-pink-50 to-purple-50 border border-purple-100 px-5 py-1.5 rounded-full text-sm shadow-sm text-purple-800">เริ่มต้น 20.-</span>
+                </div>
+            </header>
+
+            <section class="px-5 mb-6">
+                <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-sm font-medium text-emerald-800">Status: รับงานปกติ</span>
+                    </div>
+                    <button class="text-xs bg-white px-3 py-1 rounded-lg border border-emerald-200 text-emerald-700 font-medium border-dashed">เช็คคิวงาน</button>
+                </div>
+            </section>
+
+            <section class="px-5 mb-8 relative">
+                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 relative overflow-hidden">
+                    <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-theme-textMuted text-sm bg-gray-100 p-2 rounded-full"></i> เว็บที่รับทำ
+                    </h3>
+                    <ul class="space-y-3 text-[15px] text-theme-textDark ml-1">
+                        <li class="flex items-center gap-3">
+                            <div class="w-7 h-7 bg-pink-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-crown text-[10px] text-pink-300"></i></div>
+                            <span>เว็บเรทราคาแอปพรีเมียม</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-7 h-7 bg-purple-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-gamepad text-[10px] text-purple-300"></i></div>
+                            <span>เว็บเรทราคารับเติมเกมส์</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-7 h-7 bg-blue-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-palette text-[10px] text-blue-300"></i></div>
+                            <span>เว็บเรทราคารับทำป้าย</span>
+                        </li>
+                    </ul>
+                    <button onclick="openModal()" class="w-full mt-6 bg-theme-textDark text-white py-3.5 rounded-2xl font-medium text-[15px] flex justify-between items-center px-6 shadow-md hover:bg-[#25212A] active:scale-[0.98] transition-all">
+                        <span><i class="fa-solid fa-star text-yellow-400 mr-2"></i> ตัวอย่างงาน คลิก</span>
+                        <i class="fa-solid fa-chevron-right text-sm opacity-70"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="px-5 mb-8">
+                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 relative">
+                    <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-tags text-theme-textMuted bg-gray-100 p-2 rounded-full text-xs"></i> เรทราคารับทำเว็บ
+                    </h3>
+                    <div class="bg-gradient-to-r from-theme-btnBg to-purple-50 border border-purple-50/50 rounded-2xl p-4 mb-4">
+                        <div class="font-semibold text-lg text-theme-textDark">🪡 ราคาเริ่มต้น 129.-</div>
+                        <div class="text-[13px] mt-1 text-theme-textMuted">(รายละเอียดไม่เกิน 200 lines)</div>
+                    </div>
+                    <div class="text-[14px] space-y-2 mb-5">
+                        <div class="font-medium text-theme-textDark border-l-4 border-pink-200 pl-3">กรณีรายละเอียดเพิ่มขึ้น:</div>
+                        <ul class="space-y-1.5 text-theme-textMuted ml-4">
+                            <li>เกิน 200 lines เริ่มที่ 139.-</li>
+                            <li>เกิน 400 lines เริ่มที่ 189.-</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="px-5 mb-10">
+                <div class="bg-gradient-to-br from-theme-btnBg to-white p-6 rounded-[28px] shadow-soft border border-purple-100">
+                    <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-computer text-purple-400 bg-white p-2 rounded-full shadow-sm"></i> คอร์สสอนทำเว็บสไตล์พิ้งจู
+                    </h3>
+                    <div class="flex items-end gap-3 mb-5">
+                        <div class="font-bold text-3xl text-theme-textDark">299.-</div>
+                        <div class="text-sm text-theme-textMuted line-through mb-1.5">ปกติ 399.-</div>
+                    </div>
+                    <a href="#" class="block text-center bg-white border border-purple-100 text-theme-textDark py-3 rounded-2xl text-[14px] font-medium">ดูรายละเอียดคอร์ส</a>
+                </div>
+            </section>
+            <section class="px-5 mb-10">
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <h2 class="font-heading text-2xl font-bold text-theme-textDark">Goodnote Packages</h2>
+                </div>
+                
+                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 mb-5">
+                    <h3 class="font-bold text-lg text-theme-textDark mb-1">รุ่นพิเศษ (ถาวร)</h3>
+                    <p class="text-xs text-theme-textMuted mb-4">iOS Only</p>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-gray-50">
+                            <span class="text-sm">เมลรวม</span>
+                            <span class="font-bold text-lg">20.-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-pink-50 p-3 rounded-xl border border-pink-100">
+                            <span class="text-sm font-semibold">ส่วนตัว</span>
+                            <span class="font-bold text-xl text-theme-textDark">490.-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center pb-10">
+                <p class="text-xs text-theme-textMuted">© 2026 Pinkjulieland. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        function openModal() {
+            alert('กำลังเปิดดูตัวอย่างงาน...');
+        }
+    </script>
+</body>
+</html>
