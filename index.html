@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinkjulieland - Welcome to my shop</title>
+    <title>JNS.CONNECT - Premium Service</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -19,190 +20,374 @@
                         heading: ['Fredoka', 'sans-serif'],
                     },
                     colors: {
-                        theme: {
-                            bg: '#FAFAFC',
+                        brand: {
+                            bg: '#f1f1f1',
                             card: '#FFFFFF',
-                            textDark: '#332E3A',
-                            textMuted: '#6B6670',
-                            noteBg: '#F3F4F6',
-                            btnBg: '#F6F3F9',
-                            btnHover: '#EBE5F0',
-                            accent: '#FFB6C1',
-                            purpleSoft: '#E8D1EE',
-                        }
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px rgba(0, 0, 0, 0.03)',
-                        'float': '0 10px 30px rgba(0, 0, 0, 0.06)',
-                        'glow': '0 0 15px rgba(253, 176, 192, 0.4)',
-                    },
-                    animation: {
-                        blob: "blob 7s infinite",
-                        float: "float 4s ease-in-out infinite",
-                        floatSlow: "float 6s ease-in-out infinite",
-                        pulseSoft: "pulseSoft 3s ease-in-out infinite",
-                    },
-                    keyframes: {
-                        blob: {
-                            "0%": { transform: "translate(0px, 0px) scale(1)" },
-                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                            "100%": { transform: "translate(0px, 0px) scale(1)" },
-                        },
-                        float: {
-                            "0%, 100%": { transform: "translateY(0)" },
-                            "50%": { transform: "translateY(-8px)" },
-                        },
-                        pulseSoft: {
-                            "0%, 100%": { opacity: 1, transform: "scale(1)" },
-                            "50%": { opacity: 0.7, transform: "scale(0.95)" },
+                            accent: '#00B900',
+                            warning: '#FFD700'
                         }
                     }
                 }
             }
         }
     </script>
+
     <style>
-        body { background-color: #FAFAFC; color: #332E3A; -webkit-tap-highlight-color: transparent; }
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        body { 
+            background-color: #f1f1f1; 
+            color: #000000; 
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
+        /* Background Decorations */
+        .star { position: fixed; background: white; border-radius: 50%; opacity: 0.5; pointer-events: none; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+        
+        .shooting-star {
+            position: fixed; top: 0; left: 50%; width: 2px; height: 2px;
+            background: linear-gradient(90deg, white, transparent);
+            animation: shoot 5s linear infinite; pointer-events: none;
+        }
+        @keyframes shoot {
+            0% { transform: translateX(0) translateY(0) rotate(-45deg) scale(0); opacity: 1; }
+            10% { transform: translateX(-600px) translateY(600px) rotate(-45deg) scale(1); opacity: 1; }
+            20% { transform: translateX(-1200px) translateY(1200px) rotate(-45deg) scale(0); opacity: 0; }
+            100% { transform: translateX(-1200px) translateY(1200px) rotate(-45deg) scale(0); opacity: 0; }
+        }
+
+        /* Removed Cat Animation */
+        
+        /* Wiggle & Bounce */
+        @keyframes wiggle { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes pop-in { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        .emoji-wiggle { display: inline-block; animation: wiggle 1.5s ease-in-out infinite; }
+        .emoji-bounce { display: inline-block; animation: bounce-slow 2s ease-in-out infinite; }
+        
+        /* Plaid Pattern */
+        .plaid-pattern {
+            background-color: #ffffff;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02)),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 25%, #ffffff 25%, #ffffff 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02));
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+        }
+
+        /* Title Glow */
+        .title-glow {
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, #000, #444, #000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #back-to-top {
+            display: none;
+            animation: bounce-slow 1s ease-in-out infinite;
+        }
+
         .modal-open { overflow: hidden; }
-        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
-        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        ::-webkit-scrollbar { width: 0px; }
     </style>
 </head>
-<body class="antialiased font-sans flex justify-center selection:bg-pink-200 selection:text-pink-900">
+<body class="antialiased font-sans flex justify-center">
 
-    <main class="w-full max-w-[480px] min-h-screen relative pb-16 bg-white shadow-2xl sm:my-8 sm:rounded-[40px] overflow-hidden border border-gray-100">
+    <div id="stars-container"></div>
+    
+    <!-- Added more shooting stars with different timings and positions -->
+    <div class="shooting-star" style="top: 5%; left: 90%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 15%; left: 70%; animation-delay: 2.5s;"></div>
+    <div class="shooting-star" style="top: -10%; left: 50%; animation-delay: 4s;"></div>
+    <div class="shooting-star" style="top: 25%; left: 95%; animation-delay: 1.5s;"></div>
+    <div class="shooting-star" style="top: 10%; left: 40%; animation-delay: 6s;"></div>
+    <div class="shooting-star" style="top: 20%; left: 80%; animation-delay: 3.2s;"></div>
+    
+    <main class="w-full max-w-[550px] min-h-screen relative pb-20 pt-10 px-4 flex flex-col items-center z-10">
         
-        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-            <div class="absolute top-[-5%] left-[-10%] w-[300px] h-[300px] bg-pink-100 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-blob"></div>
-            <div class="absolute top-[30%] right-[-10%] w-[350px] h-[350px] bg-purple-100 rounded-full mix-blend-multiply filter blur-[90px] opacity-60 animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-[10%] left-[5%] w-[250px] h-[250px] bg-blue-50 rounded-full mix-blend-multiply filter blur-[70px] opacity-70 animate-blob animation-delay-4000"></div>
-        </div>
+        <header class="w-full flex flex-col items-center mb-8 text-center" data-aos="fade-down">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-xl mb-6 transform hover:rotate-6 transition-transform duration-500 bg-white">
+                <img src="https://img2.pic.in.th/April-Dump.png" 
+                     alt="JNS.CONNECT Logo" 
+                     class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-4xl font-heading font-bold title-glow mb-2">JNS.CONNECT</h1>
+            <p class="text-[16px] font-medium text-gray-700 italic">เจเอนเอสบริการรับผ่อนสินค้าทั่วจักรวาล⭐️</p>
+        </header>
 
-        <div class="relative z-10">
-            <header class="pt-14 pb-6 px-6 text-center relative">
-                <div class="absolute top-10 left-6 text-pink-200 opacity-40 text-3xl font-bold font-heading animate-float pointer-events-none">&lt;/&gt;</div>
-                <div class="absolute top-16 right-8 text-purple-200 opacity-40 text-2xl font-bold font-heading animate-floatSlow pointer-events-none">{ }</div>
+        <section class="w-full bg-brand-card rounded-3xl p-6 mb-4 shadow-sm border border-gray-100 text-center">
+            <p class="font-bold text-[16px]">👀 บริการผ่อนสินค้าไอที | iPhone | iPad | ศัลยกรรม📲</p>
+        </section>
 
-                <h1 class="font-heading text-4xl font-bold text-theme-textDark mb-1 tracking-wide relative inline-block">
-                    Pinkjulieland
-                    <svg class="absolute -top-3 -right-5 w-6 h-6 animate-pulseSoft" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 13 9 18 12C13 14 12 22 12 22C12 22 11 14 6 12C11 9 12 2 12 2Z" fill="#FDB0C0"/></svg>
-                </h1>
-                <h2 class="font-heading text-xl text-theme-textMuted font-medium mb-6">Welcome to my shop</h2>
-                
-                <div class="flex flex-col items-center gap-3">
-                    <p class="text-[15px] leading-relaxed text-theme-textDark">
-                        ร้านจูรับทำเว็บไซต์ครบวงจร <br>
-                        และจำหน่ายแอป Goodnote ทุกรูปแบบ
-                    </p>
-                    <span class="inline-block font-medium bg-gradient-to-r from-pink-50 to-purple-50 border border-purple-100 px-5 py-1.5 rounded-full text-sm shadow-sm text-purple-800">เริ่มต้น 20.-</span>
-                </div>
-            </header>
+        <section class="w-full mb-4">
+            <button onclick="openModal('contact-modal')" class="w-full bg-black text-white rounded-3xl py-5 px-6 font-bold text-xl flex items-center justify-center gap-3 shadow-xl hover:scale-[1.02] active:scale-95 transition-all">
+                ⭐️ ช่องทางการติดต่อ <span class="emoji-wiggle">👆🏻</span>
+            </button>
+        </section>
 
-            <section class="px-5 mb-6">
-                <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 flex items-center justify-between shadow-sm">
-                    <div class="flex items-center gap-2">
-                        <span class="relative flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                        </span>
-                        <span class="text-sm font-medium text-emerald-800">Status: รับงานปกติ</span>
-                    </div>
-                    <button class="text-xs bg-white px-3 py-1 rounded-lg border border-emerald-200 text-emerald-700 font-medium border-dashed">เช็คคิวงาน</button>
-                </div>
-            </section>
-
-            <section class="px-5 mb-8 relative">
-                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 relative overflow-hidden">
-                    <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-laptop-code text-theme-textMuted text-sm bg-gray-100 p-2 rounded-full"></i> เว็บที่รับทำ
-                    </h3>
-                    <ul class="space-y-3 text-[15px] text-theme-textDark ml-1">
-                        <li class="flex items-center gap-3">
-                            <div class="w-7 h-7 bg-pink-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-crown text-[10px] text-pink-300"></i></div>
-                            <span>เว็บเรทราคาแอปพรีเมียม</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-7 h-7 bg-purple-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-gamepad text-[10px] text-purple-300"></i></div>
-                            <span>เว็บเรทราคารับเติมเกมส์</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-7 h-7 bg-blue-50 rounded-full flex justify-center items-center flex-shrink-0"><i class="fa-solid fa-palette text-[10px] text-blue-300"></i></div>
-                            <span>เว็บเรทราคารับทำป้าย</span>
-                        </li>
-                    </ul>
-                    <button onclick="openModal()" class="w-full mt-6 bg-theme-textDark text-white py-3.5 rounded-2xl font-medium text-[15px] flex justify-between items-center px-6 shadow-md hover:bg-[#25212A] active:scale-[0.98] transition-all">
-                        <span><i class="fa-solid fa-star text-yellow-400 mr-2"></i> ตัวอย่างงาน คลิก</span>
-                        <i class="fa-solid fa-chevron-right text-sm opacity-70"></i>
-                    </button>
-                </div>
-            </section>
-
-            <section class="px-5 mb-8">
-                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 relative">
-                    <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-tags text-theme-textMuted bg-gray-100 p-2 rounded-full text-xs"></i> เรทราคารับทำเว็บ
-                    </h3>
-                    <div class="bg-gradient-to-r from-theme-btnBg to-purple-50 border border-purple-50/50 rounded-2xl p-4 mb-4">
-                        <div class="font-semibold text-lg text-theme-textDark">🪡 ราคาเริ่มต้น 129.-</div>
-                        <div class="text-[13px] mt-1 text-theme-textMuted">(รายละเอียดไม่เกิน 200 lines)</div>
-                    </div>
-                    <div class="text-[14px] space-y-2 mb-5">
-                        <div class="font-medium text-theme-textDark border-l-4 border-pink-200 pl-3">กรณีรายละเอียดเพิ่มขึ้น:</div>
-                        <ul class="space-y-1.5 text-theme-textMuted ml-4">
-                            <li>เกิน 200 lines เริ่มที่ 139.-</li>
-                            <li>เกิน 400 lines เริ่มที่ 189.-</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="px-5 mb-10">
-                <div class="bg-gradient-to-br from-theme-btnBg to-white p-6 rounded-[28px] shadow-soft border border-purple-100">
-                    <h3 class="font-semibold text-lg mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-computer text-purple-400 bg-white p-2 rounded-full shadow-sm"></i> คอร์สสอนทำเว็บสไตล์พิ้งจู
-                    </h3>
-                    <div class="flex items-end gap-3 mb-5">
-                        <div class="font-bold text-3xl text-theme-textDark">299.-</div>
-                        <div class="text-sm text-theme-textMuted line-through mb-1.5">ปกติ 399.-</div>
-                    </div>
-                    <a href="#" class="block text-center bg-white border border-purple-100 text-theme-textDark py-3 rounded-2xl text-[14px] font-medium">ดูรายละเอียดคอร์ส</a>
-                </div>
-            </section>
-            <section class="px-5 mb-10">
-                <div class="flex items-center justify-center gap-2 mb-6">
-                    <h2 class="font-heading text-2xl font-bold text-theme-textDark">Goodnote Packages</h2>
+        <section class="w-full bg-[#E8F5E9] rounded-3xl p-5 mb-4 shadow-sm border border-[#C8E6C9]">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-center gap-3 font-bold text-green-800">
+                    <span class="emoji-wiggle text-2xl">✅</span>
+                    <span>จดทะเบียนภาณิชย์ถูกต้องตามกฏหมาย</span>
                 </div>
                 
-                <div class="glass-card p-6 rounded-[28px] shadow-soft border border-white/60 mb-5">
-                    <h3 class="font-bold text-lg text-theme-textDark mb-1">รุ่นพิเศษ (ถาวร)</h3>
-                    <p class="text-xs text-theme-textMuted mb-4">iOS Only</p>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-gray-50">
-                            <span class="text-sm">เมลรวม</span>
-                            <span class="font-bold text-lg">20.-</span>
-                        </div>
-                        <div class="flex justify-between items-center bg-pink-50 p-3 rounded-xl border border-pink-100">
-                            <span class="text-sm font-semibold">ส่วนตัว</span>
-                            <span class="font-bold text-xl text-theme-textDark">490.-</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                <button onclick="openModal('reg-modal')" class="bg-white text-black rounded-2xl py-3.5 px-6 font-bold flex items-center justify-between hover:bg-gray-50 transition-all border border-green-200 shadow-sm active:scale-95">
+                    <span class="flex items-center gap-2">เช็คทะเบียนภาณิชย์ 𝗖𝗹𝗶𝗰𝗸 !</span>
+                    <span class="emoji-wiggle text-xl">👆🏻</span>
+                </button>
+            </div>
+        </section>
 
-            <footer class="text-center pb-10">
-                <p class="text-xs text-theme-textMuted">© 2026 Pinkjulieland. All rights reserved.</p>
-            </footer>
-        </div>
+        <section id="status-block" class="w-full rounded-3xl p-5 mb-6 shadow-sm border transition-colors duration-500 relative overflow-hidden">
+            <div class="flex flex-col items-center gap-2 relative z-10">
+                <div class="flex items-center gap-3 font-bold text-[17px]">
+                    <span class="emoji-bounce text-xl">🏪</span>
+                    <span>เปิดร้านทุกวันเวลา 08.00 ถึงเที่ยงคืน</span>
+                    <span class="emoji-wiggle text-xl">⏰</span>
+                </div>
+                <div id="status-tag" class="px-6 py-1.5 rounded-full text-white font-bold text-sm shadow-sm mt-1">
+                    Checking...
+                </div>
+            </div>
+            <!-- Cute sparkles decoration -->
+            <div class="absolute top-2 right-4 text-xs opacity-40">✨</div>
+            <div class="absolute bottom-2 left-4 text-xs opacity-40">✨</div>
+        </section>
+
+        <section class="w-full bg-brand-card rounded-3xl p-6 mb-6 shadow-sm border border-gray-100">
+            <h2 class="font-bold text-[18px] mb-5 flex items-center gap-2 border-b border-gray-100 pb-3">
+                📄 รวมบริการร้าน JNS.CONNECT
+            </h2>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                    <span class="emoji-wiggle text-2xl">📱</span>
+                    <span class="font-medium text-[15px]">ผ่อน iPhone iPad ประกันศูนย์ไทย</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                    <span class="emoji-wiggle text-2xl">💉</span>
+                    <span class="font-medium text-[15px]">ผ่อนออมศัลยกรรมและหัตกรรม</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                    <span class="emoji-wiggle text-2xl">💸</span>
+                    <span class="font-medium text-[15px]">วางดาวน์สินค้า IT จ่ายงวดเดียวรับของไปใช้</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full bg-brand-card rounded-3xl p-6 mb-10 shadow-sm border border-gray-100 plaid-pattern">
+            <h2 class="font-bold text-[18px] mb-5 flex items-center gap-2 bg-black text-white w-max px-4 py-1.5 rounded-xl shadow-lg">
+                📋 รายละเอียดสำคัญอ่าน
+            </h2>
+            <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                    <span class="emoji-wiggle text-xl mt-1">🔞</span>
+                    <p class="font-bold text-[14px] leading-relaxed">ลูกค้าที่อายุต่ำกว่า 18ปี ควรปรึกษาผู้ปกครองให้เรียบร้อย หรือให้ทางร้านโทรไปขออนุญาตผู้ปกครองได้</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="emoji-wiggle text-xl mt-1">💰</span>
+                    <p class="font-bold text-[14px] leading-relaxed">ยกเลิกผ่อนทางร้านไม่คืนเงินทุกกรณี และไม่สามารถยกยอดผ่อนให้ลูกค้าท่านอื่นได้</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="emoji-wiggle text-xl mt-1">📄</span>
+                    <p class="font-bold text-[14px] leading-relaxed">ใช้เอกสารตัวจริง ทางพบเอกสารปลอมทางร้านจะดำเนินคดีตามกฏหมายทันที</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="emoji-wiggle text-xl mt-1">🏦</span>
+                    <p class="font-bold text-[14px] leading-relaxed">บัญชีโอนยอดต้องเป็นชื่อเดียวกับผู้ผ่อนเท่านั้นหรือนามสกุลเดียวกัน</p>
+                </div>
+            </div>
+        </section>
+
+        <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mb-6 bg-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg border border-gray-200">
+            <span class="emoji-wiggle text-2xl">⬆️</span>
+        </button>
+
+        <footer class="text-center text-xs text-gray-400 font-medium">
+            © 2026 JNS.CONNECT All rights reserved ✨
+        </footer>
     </main>
 
+    <div id="modal-overlay" class="fixed inset-0 bg-black/70 z-[100] hidden flex-col justify-center items-center backdrop-blur-md opacity-0 transition-opacity duration-300 px-4">
+        
+        <div id="reg-modal" class="hidden bg-white w-full max-w-[420px] rounded-[2.5rem] overflow-hidden shadow-2xl scale-95 transition-transform duration-300 border-4 border-white">
+            <div class="p-8 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="text-center mb-6 mt-4">
+                    <div class="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">เอกสารจดทะเบียน</h3>
+                    <p class="text-sm text-gray-500 mt-2">จดทะเบียนถูกต้องตามกฎหมายพาณิชย์</p>
+                </div>
+
+                <div class="bg-red-50 text-red-700 rounded-2xl p-4 mb-6 text-sm font-bold border border-red-100 leading-relaxed">
+                    <span class="emoji-wiggle text-lg mr-2">📢</span> ชื่อร้านเดิม JIRACAFE <br>
+                    <span class="emoji-wiggle text-lg mr-2">🏦</span> ชื่อบัญชีโอนต้องเป็น <u class="text-red-900">จิระพงศ์ แซ่ลิ้ม</u> เท่านั้น
+                </div>
+                
+                <a href="https://drive.google.com/file/d/1b768dLup71FbA4YBZOduGvvNKttsCjxO/view?usp=drive_link" target="_blank" class="block w-full text-center bg-black text-white font-bold py-4 rounded-2xl hover:bg-gray-800 transition-all shadow-lg">
+                    ดูใบจดทะเบียน คลิกที่นี่ 📄
+                </a>
+            </div>
+        </div>
+
+        <div id="contact-modal" class="hidden bg-white w-full max-w-[420px] rounded-[2.5rem] overflow-hidden shadow-2xl scale-95 transition-transform duration-300 flex flex-col max-h-[90vh] border-4 border-white">
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white z-10">
+                <h3 class="text-xl font-bold flex items-center gap-2">⭐️ ช่องทางการติดต่อ</h3>
+                <button onclick="closeModal()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto">
+                <div class="bg-yellow-50 border-2 border-yellow-400 rounded-2xl p-4 mb-6 shadow-sm">
+                    <p class="font-bold text-black text-[15px] leading-relaxed text-center">
+                        ⚠️ <span class="text-red-600 underline">คำเตือน!</span> : ทางร้านไม่ตอบ DM ไอจีทุกกรณี <br> รบกวนทักไลน์เท่านั้น!
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <a href="https://lin.ee/9d454l1" target="_blank" class="flex items-center gap-4 bg-[#F5F8F5] border-2 border-[#00B900]/10 p-4 rounded-3xl hover:bg-[#E8F5E9] transition-all group">
+                        <div class="w-14 h-14 bg-[#00B900] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:rotate-6 transition-transform">
+                            <i class="fa-brands fa-line"></i>
+                        </div>
+                        <div class="flex-1 font-bold text-[16px]">
+                            📲 Line หลักร้านผ่อนสินค้า <br><span class="text-[#00B900] text-sm">( 𝗖𝗹𝗶𝗰𝗸 ! 👆🏻 )</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/jns.2hand/" target="_blank" class="flex items-center gap-4 bg-[#FFF5F8] border-2 border-[#E1306C]/10 p-4 rounded-3xl hover:bg-[#FFE5EC] transition-all group">
+                        <div class="w-14 h-14 bg-gradient-to-tr from-[#FFDC80] via-[#F56040] to-[#833AB4] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:rotate-6 transition-transform">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="flex-1 font-bold text-[16px]">
+                            💻 IG สินค้าไอโฟน-ไอแพด มือ2 <br><span class="text-[#E1306C] text-sm">( 𝗖𝗹𝗶𝗰𝗸 ! 👆🏻 )</span>
+                        </div>
+                    </a>
+
+                    <a href="https://line.me/ti/g2/tH5otMtzc0MGqWd5ZySP16XlcudEquWLPe4epQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="flex items-center gap-4 bg-[#F5F8F5] border-2 border-[#00B900]/10 p-4 rounded-3xl hover:bg-[#E8F5E9] transition-all group">
+                        <div class="w-14 h-14 bg-[#00B900] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:rotate-6 transition-transform">
+                            <i class="fa-brands fa-line"></i>
+                        </div>
+                        <div class="flex-1 font-bold text-[16px]">
+                            📩กลุ่ม Line อัพเดทสินค้ามือสอง <br><span class="text-[#00B900] text-sm">( 𝗖𝗹𝗶𝗰𝗸 ! 👆🏻 )</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@jns.connect?_t=ZS-8wLbEgzgRtN&_r=1" target="_blank" class="flex items-center gap-4 bg-gray-50 border-2 border-gray-100 p-4 rounded-3xl hover:bg-gray-100 transition-all group">
+                        <div class="w-14 h-14 bg-black text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:rotate-6 transition-transform">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <div class="flex-1 font-bold text-[16px]">
+                            📷 Tik Tok ลงคลิปรีวิว <br><span class="text-gray-600 text-sm">( 𝗖𝗹𝗶𝗰𝗸 ! 👆🏻 )</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-sm font-bold text-gray-400">คลิ๊กตรงนี้เพื่อติดต่อ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function openModal() {
-            alert('กำลังเปิดดูตัวอย่างงาน...');
+        // Star Background Generation
+        const starsContainer = document.getElementById('stars-container');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`;
+            starsContainer.appendChild(star);
         }
+
+        // Store Opening Status Logic
+        function updateStoreStatus() {
+            const statusBlock = document.getElementById('status-block');
+            const statusTag = document.getElementById('status-tag');
+            const now = new Date();
+            const hour = now.getHours();
+            
+            // Open between 08:00 and 00:00 (midnight)
+            // (Note: hour 0 is midnight)
+            const isOpen = (hour >= 8 && hour < 24);
+
+            if (isOpen) {
+                statusBlock.style.backgroundColor = '#FFFFFF';
+                statusBlock.style.borderColor = '#C8E6C9';
+                statusTag.style.backgroundColor = '#00B900';
+                statusTag.innerHTML = 'เปิดร้านค้าบ ✨';
+            } else {
+                statusBlock.style.backgroundColor = '#FFFFFF';
+                statusBlock.style.borderColor = '#FFCDD2';
+                statusTag.style.backgroundColor = '#EF5350';
+                statusTag.innerHTML = 'ปิดร้านค้าบ 💤';
+            }
+        }
+
+        // Modal Logic
+        const overlay = document.getElementById('modal-overlay');
+        let currentModalId = null;
+
+        function openModal(modalId) {
+            document.body.classList.add('modal-open');
+            currentModalId = modalId;
+            document.getElementById('reg-modal').classList.add('hidden');
+            document.getElementById('contact-modal').classList.add('hidden');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                modal.classList.remove('scale-95');
+                modal.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            if (!currentModalId) return;
+            const modal = document.getElementById(currentModalId);
+            overlay.classList.add('opacity-0');
+            modal.classList.remove('scale-100');
+            modal.classList.add('scale-95');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+                currentModalId = null;
+            }, 300);
+        }
+
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+        // Back to Top Visibility
+        window.onscroll = function() {
+            const btn = document.getElementById('back-to-top');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+
+        // Initialize
+        window.onload = function() {
+            updateStoreStatus();
+            // Update status every minute
+            setInterval(updateStoreStatus, 60000);
+        };
     </script>
 </body>
 </html>
